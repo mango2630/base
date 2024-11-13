@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button> shownotify</button>
+    <script>
+
+        async function notify() {
+            await Notification.requestPermission()
+            const notification = new Notification('TUICallKit', {
+                body: 'denny 邀请你通话',
+                icon: 'https://github.com/tencentyun/TUICallKit/blob/main/Preview/logo.png?raw=true'
+            });
+        }
+        setTimeout(() => {
+            notify();
+        }, 2000)
+    </script>
+</body>
+</html>

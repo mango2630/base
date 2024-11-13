@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body> 
+<!-- 不能完全算作脱离文档流，会在当前文档流上方创建一个层叠上下文；脱离文档流的话，下面的元素会上走 -->
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9Ii01IiB5PSItNSIgd2lkdGg9IjExMCIgaGVpZ2h0PSIxMTAiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yOTY0XzE3NTgpIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMjQuOTk5OSA3MS41QzI0Ljk5OTkgNjEuMjM1NyAzMi45MzA0IDUyLjgyMzcgNDIuOTk4MyA1Mi4wNTdDNDMuNDkzOSA1Mi4wMTkzIDQzLjk5NDcgNTIgNDQuNDk5OSA1Mkg1Ny40OTk5QzU4LjAwNTEgNTIgNTguNTA1OSA1Mi4wMTkzIDU5LjAwMTQgNTIuMDU3QzY5LjA2OTQgNTIuODIzNyA3Ni45OTk5IDYxLjIzNTcgNzYuOTk5OSA3MS41Vjc4LjI4MjZIMjQuOTk5OUwyNC45OTk5IDcxLjVaIiBmaWxsPSIjRDVFMEYyIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNDQuNDk5OSA0NS42MDQ4QzQ0LjQzMTIgNDUuNTcwNyA0NC4zNjI5IDQ1LjUzNiA0NC4yOTQ4IDQ1LjUwMDhDMzkuNTkwNiA0My4wNjk3IDM2LjM3NDkgMzguMTYwNCAzNi4zNzQ5IDMyLjVDMzYuMzc0OSAyNC40MjI4IDQyLjkyMjcgMTcuODc1IDUwLjk5OTkgMTcuODc1QzU5LjA3NyAxNy44NzUgNjUuNjI0OSAyNC40MjI4IDY1LjYyNDkgMzIuNUM2NS42MjQ5IDM4LjE2MDQgNjIuNDA5MiA0My4wNjk3IDU3LjcwNDkgNDUuNTAwOEM1Ny42MzY5IDQ1LjUzNiA1Ny41Njg2IDQ1LjU3MDcgNTcuNDk5OSA0NS42MDQ4QzU1LjU0MTggNDYuNTc3OSA1My4zMzQ3IDQ3LjEyNSA1MC45OTk5IDQ3LjEyNUM0OC42NjUgNDcuMTI1IDQ2LjQ1NzkgNDYuNTc3OSA0NC40OTk5IDQ1LjYwNDhaIiBmaWxsPSIjRDVFMEYyIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMjk2NF8xNzU4IiB4MT0iNzMuNSIgeTE9Ii01IiB4Mj0iNSIgeTI9Ijk4LjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzdDODU5QiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3NDdDOTAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" alt="">
+<div style="width: 500px; height: 1000px; border: 1px solid;">
+    <div style="width: 500px; height: 500px; border: 1px solid; background-color: bisque;">
+        <div style="position: sticky; width: 100px; height: 100px; background-color: gold;  top: 50px;"></div>
+        <div style="background-color: goldenrod; width: 50px;" >我是 div</div>
+    </div>
+</div>
+
+<script>
+    function sum(a, b) {
+        return a+ b;
+    }
+    function isTrue(s1, s2){
+        console.log(s1 === s2);
+    }
+    isTrue(sum, sum)
+
+</script>
+
+
+</body>
+</html>

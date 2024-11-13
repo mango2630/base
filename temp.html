@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container video {
+            width: 300px;
+            height: 260px;
+            box-shadow: 
+                inset 0px 0px 50px #fcc, inset 10px 0px 50px #fcc,
+                inset -10px 0px 50px #0ff, inset 10px 0px 50px #fcc,
+                inset -10px 0px 30px #0ff, 0px 0px 30px #fff, -10px 0px 50px #00f,
+                10px 0px 50px #0ff; 
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <video autoplay></video>
+    <div>
+        <button>打开摄像头</button>
+        <button>关闭摄像头</button>
+    </div>
+</div>
+<script>
+const [turnOnButton, turnOffButton] = document.getElementsByTagName("button");
+const oVideo = document.getElementsByTagName("video")[0];
+let videoStream = null;
+
+turnOnButton.addEventListener('click', turnOnCamera);
+turnOffButton.addEventListener('click', turnOffCamera);
+
+function turnOnCamera() {
+    navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then( mediaStream => {
+            videoStream = mediaStream;
+            oVideo.srcObject = mediaStream;
+        })
+}
+
+function turnOffCamera() {
+    if(videoStream) {
+        const tracks = videoStream.getTracks();
+        tracks.forEach( track => {
+            track.stop();
+        });
+        oVideo.srcObject = null;
+    }
+}
+</script>
+</body>
+</html>

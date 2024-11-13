@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <div id="parentElement">
+    <div id="box">123</div>
+    <div id="box">123</div>
+    <span id="childElement">foo bar</span>
+  </div>
+
+  <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+  <!-- <script src="./02-9.2.js"></script> -->
+
+  <script>
+    // insert(oldStartVNode.el, container, oldEndVNode.el.nextSibling);
+    // 用于在指定的 parent 下添加元素
+    // insert(el, parent, anchor = null) {
+    //   parent.insertBefore(el, anchor);
+    // },
+
+    const box = document.getElementById("box");
+
+    // ======== nextSibling 方法 ========
+    // Node.nextSibling 是一个只读属性，返回其父节点的 childNodes 列表中紧跟在其后面的节点，如果指定的节点为最后一个节点，则返回 null。
+  
+    
+    // ======== insertBefore() 方法 ========
+    // var insertedNode = parentNode.insertBefore(newNode, referenceNode);
+    // 如果给定的子节点是对文档中现有节点的引用，insertBefore() 会将其从当前位置移动到新位置（在将节点附加到其他节点之前，不需要从其父节点删除该节点）。
+    // 如果引用节点为 null，则将指定的节点添加到指定父节点的子节点列表的末尾。
+    const newNode = document.createElement("span");
+    const spanNode = document.getElementById("childElement");
+    newNode.textContent = "wNode";
+    const parentNode = document.getElementById("parentElement");
+    const referenceNode = document.getElementById("childElement");
+
+    // 在 parentNode 中，将 newNode 插入到 referenceNode 之前
+    setTimeout(() => {
+      parentNode.insertBefore(newNode, referenceNode);
+    }, 1000)
+
+  </script>
+</body>
+</html>

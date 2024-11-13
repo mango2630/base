@@ -1,0 +1,26 @@
+
+.box {
+    /* 这里的宽高需要支持修改 */
+    /* 如果要修改大小，需要传入 height: 100% */
+    height: 100vh;
+    /* height: 100%; */
+}
+
+.box1 {
+    position: relative;
+    height: 100%;
+}
+
+.box2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(31, 146, 73, 0.696);
+}
+
+.container {
+    /* width: 100px; */
+    /* height: 100px; */
+}

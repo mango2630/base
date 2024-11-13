@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .loading {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #d4d2d2;
+            animation: circle infinite 0.75s linear;
+        }
+
+        @keyframes circle {
+            0% {
+                transform: translateX(-30px);
+            }
+            100% {
+                transform: translateX(30px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading"></div>
+</body>
+</html>

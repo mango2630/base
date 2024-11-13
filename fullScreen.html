@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body> 
+
+<div id="fullscreenDiv">
+    <h1>全屏元素</h1>
+    <p>这是一个全屏元素示例。</p>
+    <button onclick="toggleFullscreen()">切换全屏</button>
+</div>
+
+<script>
+// 全屏指什么？
+/**
+ * 
+ * 在Web开发中，全屏（Fullscreen）是指将网页或网页中的某个元素展示为占据整个屏幕的状态，以提供更沉浸式的体验。全屏模式可以用于各种场景，例如视频播放、幻灯片演示、游戏等。
+
+在Web开发中，实现全屏功能可以使用以下两个API：
+
+Fullscreen API：Fullscreen API 是浏览器提供的一组API，用于控制和管理全屏状态。它包含了一些方法和事件，可以让开发者在网页中实现全屏功能。主要的方法包括：
+
+requestFullscreen()：请求将元素设置为全屏状态。
+exitFullscreen()：退出全屏状态。
+fullscreenElement：返回当前处于全屏状态的元素。
+Fullscreen API 的使用可以通过 JavaScript 来调用这些方法，并监听相应的事件来处理全屏状态的变化。
+
+CSS :fullscreen 伪类：CSS :fullscreen 伪类可以用于选择当前处于全屏状态的元素，并对其应用样式。通过在 CSS 中使用 :fullscreen 伪类，可以对全屏元素进行样式定制，以适应全屏显示。
+
+这些API和伪类提供了一种标准化的方式来实现全屏功能，使开发者能够更方便地控制和管理全屏状态。然而，需要注意的是，全屏功能在不同浏览器中的支持程度可能会有所差异，因此在实现全屏功能时，最好进行兼容性测试和处理。
+
+总结起来，全屏功能的参考是 Fullscreen API 和 CSS :fullscreen 伪类，开发者可以使用这些API和伪类来实现全屏功能，并根据需要进行样式定制和事件处理。
+ * 
+*/
+function toggleFullscreen() {
+    let full = document.getElementById("fullscreenDiv");
+
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    }  else {
+        full.requestFullscreen();
+    }
+}
+document.addEventListener('fullscreenchange', function(event) {
+    if (document.fullscreenElement) {
+    console.log('当前全屏元素：', document.fullscreenElement);
+    } else {
+    console.log('没有元素处于全屏状态');
+    }
+});
+
+
+</script>
+
+<!-- <script src="./index.js"></script> -->
+</body>
+</html>
