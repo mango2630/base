@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button> count ++ </button>
+
+  <script>
+    const btn = document.getElementsByTagName('button')[0];
+    let count = 0;
+    const arr = [];
+
+    const handleClick = () => {
+      count ++;
+      console.log(new Date(), count, this);
+    }
+
+    // 5s 内触发，重新 count ++
+    // debounce 有滞后性，wait ms 之后才会去执行传入的函数
+    function debounce(func, wait) {
+      let timeId = null;
+      return function () {
+        const context = this;
+        const args = arguments;
+
+        clearTimeout(timeId);
+        timeId = setTimeout(() => {
+          func.apply(context, args)
+        }, wait);
+      }
+    }
+
+    function throttle(func, wait) {
+      let timeId = null;
+      return function () {
+        const context = this;
+        const args = arguments;
+        if (!timeId) {
+          setTimeout(() => {
+            func.apply(context, args);
+            clearTimeout(timeId);
+            timeId = null;
+          }, wait);
+        }
+      }
+    }
+
+    const handleDebounceClick = debounce(handleClick, 1000);
+    btn.addEventListener('click', handleDebounceClick);
+  </script>
+</body>
+</html>
