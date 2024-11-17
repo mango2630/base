@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button> count ++ </button>
+  <script>
+    const throttle = (func, wait) => {
+      let lastCallTime = 0;
+
+      const throttled = async (...args) => {
+        const now = Date.now();
+        if (now - lastCallTime >= wait) {
+          console.log('func--', func);
+          await func.apply(this, args);
+          console.log('func++', func);
+          lastCallTime = now;
+        }
+      };
+
+      return throttled;
+    };
+
+    let handleClick = throttle(() => {
+      return console.log('navigate');
+      
+    }, 2000);
+
+
+    let oBtn = document.getElementsByTagName("button")[0];
+    oBtn.addEventListener('click', () => handleClick(10))
+
+
+    function testSwtichCase(type) {
+      switch(type) {
+        case 1:
+          pathInc(12);
+          break;
+        default:
+          break;
+      }
+    }
+
+  </script>
+</body>
+</html>
