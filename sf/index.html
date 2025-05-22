@@ -6,10 +6,48 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        const {age = ''} = {}
-        console.log(age);
-        
-    </script>
+<script>
+const obj = {
+    name: 'denny',
+    school: [0, 1, 2],
+    classes: {
+        name: [1, 2],
+        year: {
+            time: 12
+        }
+    }
+}
+const proxyObj1 = createProxy(obj);
+proxyObj1.classes.name
+//  打印调用链路
+
+function createProxy(obj, path = []) {
+    const handler = {
+        get(target, prop, receiver) {
+
+            const value = Reflect.get(target, prop, receiver);
+
+            if (value === 'object' && value !== null) {
+                return createProxy(value);
+            } else {
+                return value;
+            }
+        }
+    }
+
+    return new Proxy(obj, handler);
+}
+
+const proxyObj1 = createProxy(obj);
+
+proxyObj1.classes.name
+
+const proxyObj2 = new Proxy(obj, {
+    get(target, prop, receiver) {
+        console.log('get', target, prop, receiver);
+        return target[prop];
+    }
+})
+</script>
 </body>
 </html>

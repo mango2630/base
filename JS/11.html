@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+
+const subtitleInfo = {
+  10009736: {
+    sender: '10009736',
+    text: '天地院都',
+    translationText: undefined,
+    startMsTs: 1733565323951,
+    end: true
+  },
+  929351834: {
+    sender: '929351834',
+    text: '天地院',
+    translationText: undefined,
+    startMsTs: 1733565323912,
+    end: true
+  }
+};
+
+function handleSubtitleInfo(subtitleInfo) {
+
+  const arr = 
+    Object.keys(subtitleInfo)
+    .map(
+      userId => {
+        return subtitleInfo[userId];
+      }
+    );
+    return arr.sort((a, b) => a.startMsTs - b.startMsTs);
+}
+
+const arr = handleSubtitleInfo(subtitleInfo);
+console.log(subtitleInfo, arr);
+
+</script>
+</body>
+</html>

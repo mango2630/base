@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+// ====================== 一、修改对象的属性的值 =====================
+const obj = {
+  user1: {
+    name: 'deny',
+    age: '12',
+  }
+}
+
+// way1: 全量覆盖
+obj["user1"] = { name: 'deny', age: '13' };
+
+// way2: 局部覆盖
+obj["user1"].age = '14';
+
+// ====================== 二、新增属性是有序的还是无序的 =====================
+obj['aa'] = 12;
+obj['ww'] = 13;
+</script>
+</body>
+</html>

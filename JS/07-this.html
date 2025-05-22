@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  function logThis() {
+    console.log(this);
+  }
+
+  [1, 2, 3].forEach(logThis, 1); // Number {1} ...
+
+  const fun1 = () => console.log(this);
+  
+  fun1(); // Window
+
+  const obj1 = {
+    name: 'obj1',
+    fun: fun1,
+    fun2: logThis,
+  }
+  obj1.fun.call(obj1); // Window
+  obj1.fun2(); // obj1
+
+</script>
+</body>
+</html>

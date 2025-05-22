@@ -24,8 +24,13 @@ function createProxy(obj, propertyArr = []) {
     }
     return new Proxy(obj, handle);
 }
-
 const proxyObj = createProxy(obj);
 
-proxyObj.classes;
-proxyObj.classes.year;
+// proxyObj.school;
+proxyObj.classes.name;
+
+// 通过代理打印出访问链路
+function createProxy2() {
+
+}
+

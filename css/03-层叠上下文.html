@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box1{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      display: flex;
+    }
+    .box1-child{
+      width: 50px;
+      height: 50px;
+      background-color: blue;
+      /* z-index: 100; */
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+    <h3>child</h3>
+    <div class="box1-child"></div>
+  </div>
+  <script>
+    // settimeout 会阻塞 dom 渲染吗？
+    // 什么会阻塞dom渲染？
+    const hh = document.createElement('h3');
+    hh.innerText = 'hh123';
+    document.body.appendChild(hh);
+  </script>
+  <h3>12333</h3>
+</body>
+</html>

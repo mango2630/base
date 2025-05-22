@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+- 一个对象的行为取决于它自身的属性及其原型的属性。
+- 类实例（实例对象)  = new 类名()
+  - 表现来看：new 之后会返回一个新的对象。
+  - new 都做了什么：
+    - 创建一个空对象：let obj = {};
+    - 设置原型链：obj.__proto__ = Person.prototype; (方法在原型上)
+    - 调用调用构造函数,绑定 this 并传递参数：res = Person.apply(obj, args); | 将属性挂到这个新对象上
+    - 返回对象：typeof res === 'object' && res !== null ? res : obj;
+<script>
+
+  function newFun(Person, args) {
+    let obj = Object.create(Person.prototype);
+    obj.name = name;
+    obj.age = age;
+    return obj;
+  }
+
+  class Person {
+    gender;
+    constructor(name, age) {
+      console.log('constructor-this', this); // Person {}
+      this.name = name;
+      this.age = age;
+    }
+
+    showName() {
+      console.log(this.name);
+    }
+
+    showAge() {
+      console.log('showAge-this', this);
+      this.handleAge();
+      console.log(this.age);
+    }
+
+    handleAge() {
+      this.age++;
+    }
+  }
+
+  const person1 = new Person('张三', 18);
+  person1.showAge();
+
+  const person2 = new Person('李四', 19);
+  person2.showAge();
+</script>
+</body>
+</html>
